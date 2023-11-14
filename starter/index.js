@@ -96,14 +96,24 @@ console.log('------------------')
 var count=finances.length
 console.log('Total number of months: ' + count)
 
-// Calculating and displaying the net total amount of Profit/Losses over the entire period.
+// Defines the formatting for the display of monetary values calculated
+var profit = { 
+  style: "currency", 
+  currency: "USD", 
+  minimumFractionDigits: 2, 
+  maximumFractionDigits: 2
+};
 
+// Calculating and displaying the net total amount of Profit/Losses over the entire period.
 var total=0
 for(var i=0;i<finances.length;i++){
     // console.log(finances[i]);
     total += finances[i][1];
 }
-console.log('Net total: $' + total);
+
+// Formats the net total to make it easier to read
+
+console.log('Net total: ' + total.toLocaleString(undefined, profit));
 
 // Calculating and displaying the average of the **changes** in Profit/Losses over the entire period.
 
@@ -121,7 +131,7 @@ for(var i=1;i<finances.length;i++){
 }
  var averagechange=totalchange / (count-1)
 
- console.log('Average of the changes in Profit/Loss over the period was: $' + averagechange.toFixed(2))
+ console.log('Average of the changes in Profit/Loss over the period was:' + averagechange.toLocaleString(undefined, profit))
 
 // Calculating and displaying the greatest increase in Profit/Losses (date and amount) over the entire period.
 
@@ -142,7 +152,7 @@ for(var i=1;i<finances.length;i++){
 // console.log('The greatest month-on-month increase in profit is: ' + greatestmonthlydifference)
 
 // Splits the greatestmonthly difference into the date and value for ease of reading
-console.log('The greatest month-on-month increase in profit was in ' + greatestmonthlydifference[0] + ' with $' + greatestmonthlydifference[1])
+console.log('The greatest month-on-month increase in profit was in ' + greatestmonthlydifference[0] + ' with ' + greatestmonthlydifference[1].toLocaleString(undefined, profit))
 
 // sum the difference onto the netChangeProfits variable: netChange = netChange + difference
 
@@ -165,4 +175,4 @@ for(var i=1;i<finances.length;i++){
 // console.log('The greatest month-on-month decrease in profit is: ' + greatestmonthlydifference)
 
 // Splits the greatestmonthly difference into the date and value for ease of reading
-console.log('The greatest month-on-month decrease in profit was in ' + greatestmonthlydifference[0] + ' with $' + greatestmonthlydifference[1])
+console.log('The greatest month-on-month decrease in profit was in ' + greatestmonthlydifference[0] + ' with ' + greatestmonthlydifference[1].toLocaleString(undefined, profit))
