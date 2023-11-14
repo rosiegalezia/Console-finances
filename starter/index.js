@@ -89,11 +89,12 @@ var finances = [
 
 // Heading
 console.log('Financial Analysis')
+console.log('------------------')
 
 // Calculating and displaying the total number of months included in the dataset:
 
 var count=finances.length
-console.log('Total number of months:' + count)
+console.log('Total number of months: ' + count)
 
 // Calculating and displaying the net total amount of Profit/Losses over the entire period.
 
@@ -137,7 +138,11 @@ for(var i=1;i<finances.length;i++){
   }
 }
 
-console.log('The greatest month-on-month increase in profit is: ' + greatestmonthlydifference)
+// Displays the entire greatestmonthlydifference array:
+// console.log('The greatest month-on-month increase in profit is: ' + greatestmonthlydifference)
+
+// Splits the greatestmonthly difference into the date and value for ease of reading
+console.log('The greatest month-on-month increase in profit was in ' + greatestmonthlydifference[0] + ' with $' + greatestmonthlydifference[1])
 
 // sum the difference onto the netChangeProfits variable: netChange = netChange + difference
 
@@ -156,16 +161,8 @@ for(var i=1;i<finances.length;i++){
   }
 }
 
-console.log('The greatest month-on-month decrease in profit is: ' + greatestmonthlydifference)
+// Displays the entire greatestmonthlydifference array:
+// console.log('The greatest month-on-month decrease in profit is: ' + greatestmonthlydifference)
 
-// When you open your code in the browser your resulting analysis should look similar to the following:
-
-//   ```text
-//   Financial Analysis 
-//   ----------------
-//   Total Months: 86
-//   Total: $38382578
-//   Average Change: -2315.12
-//   Greatest Increase in Profits/Losses: Feb-2012 ($1926159)
-//   Greatest Decrease in Profits/Losses: Sep-2013 ($-2196167)
-//   ```
+// Splits the greatestmonthly difference into the date and value for ease of reading
+console.log('The greatest month-on-month decrease in profit was in ' + greatestmonthlydifference[0] + ' with $' + greatestmonthlydifference[1])
